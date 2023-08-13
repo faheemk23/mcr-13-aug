@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import Filters from "../components/Filters/Filters";
 import MovieCard from "../components/MovieCard/MovieCard";
@@ -9,6 +9,12 @@ export default function MovieList({ searchInput }) {
   const {
     dataState: { movies },
   } = useContext(DataContext);
+
+  const [filters, setFilters] = useState({
+    genre: "All genres",
+    year: "Release Year",
+    rating: "Rating",
+  });
 
   let filteredMovies = movies;
 
@@ -25,15 +31,37 @@ export default function MovieList({ searchInput }) {
     );
   }
 
-  console.log(searchInput);
+  // filters
+
+  const { genre, year, rating } = filters;
+
+  if (genre !== "All genres") {
+    filteredMovies = filteredMovies.filter(({ genre: genreArr }) =>
+      genreArr.includes(genre)
+    );
+  }
+
+  if (year !== "Release Year") {
+    filteredMovies = filteredMovies.filter(
+      ({ year: yearToCheck }) => yearToCheck === parseInt(year)
+    );
+  }
+
+  if (rating !== "Rating") {
+    filteredMovies = filteredMovies.filter(
+      ({ rating: ratingToCheck }) => ratingToCheck === parseInt(rating)
+    );
+  }
+
   return (
     <div className="page ">
-      <Filters />
+      <Filters filters={filters} setFilters={setFilters} />
       <section className="movie-listing">
         {filteredMovies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
       </section>
+      {filteredMovies.length === 0 && <h1>Sorry, no movies to show!</h1>}
     </div>
   );
 }
