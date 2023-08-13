@@ -1,23 +1,7 @@
 import "./DetailCard.css";
 
-const test = {
-  id: 1,
-  title: "Redemption",
-  year: 1994,
-  genre: ["Drama"],
-  rating: 9,
-  director: "Frank Darabont",
-  writer: "Stephen King",
-  cast: ["Tim Robbins", "Morgan Freeman"],
-  summary:
-    "Two imprisoned men bond over several years, finding solace and eventual redemption through acts of common decency.",
-  imageURL:
-    "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_FMjpg_UX1000_.jpg",
-};
-
-export default function DetailCard() {
+export default function DetailCard({ movie }) {
   const {
-    id,
     title,
     year,
     genre,
@@ -27,7 +11,7 @@ export default function DetailCard() {
     cast,
     summary,
     imageURL,
-  } = test;
+  } = movie;
   return (
     <article className="detail-card">
       <img src={imageURL} alt="movie" />
