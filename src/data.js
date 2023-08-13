@@ -1,6 +1,6 @@
 export const movies = [
   {
-    id: 1,
+    id: "1",
     title: "Redemption",
     year: 1994,
     genre: ["Drama"],
@@ -14,7 +14,7 @@ export const movies = [
       "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_FMjpg_UX1000_.jpg",
   },
   {
-    id: 2,
+    id: "2",
     title: "The Godfather",
     year: 1992,
     genre: ["Crime", "Drama"],
@@ -28,7 +28,7 @@ export const movies = [
       "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg",
   },
   {
-    id: 3,
+    id: "3",
     title: "The Dark Knight",
     year: 2008,
     genre: ["Action", "Crime", "Drama"],
@@ -42,7 +42,7 @@ export const movies = [
       "https://m.media-amazon.com/images/M/MV5BMTk4ODQzNDY3Ml5BMl5BanBnXkFtZTcwODA0NTM4Nw@@._V1_FMjpg_UX1000_.jpg",
   },
   {
-    id: 4,
+    id: "4",
     title: "Pulp Fiction",
     year: 1994,
     genre: ["Crime", "Drama"],
@@ -56,7 +56,7 @@ export const movies = [
       "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
   },
   {
-    id: 5,
+    id: "5",
     title: "Return of the King",
     year: 2003,
     genre: ["Adventure", "Drama", "Fantasy"],
@@ -70,7 +70,7 @@ export const movies = [
       "https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
   },
   {
-    id: 6,
+    id: "6",
     title: "Forrest Gump",
     year: 1994,
     genre: ["Drama", "Romance"],
@@ -84,7 +84,7 @@ export const movies = [
       "https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
   },
   {
-    id: 7,
+    id: "7",
     title: "Inception",
     year: 2010,
     genre: ["Action", "Adventure", "Sci-Fi"],
@@ -98,7 +98,7 @@ export const movies = [
       "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg",
   },
   {
-    id: 8,
+    id: "8",
     title: "Fight Club",
     year: 1999,
     genre: ["Drama"],
@@ -112,7 +112,7 @@ export const movies = [
       "https://m.media-amazon.com/images/M/MV5BNDIzNDU0YzEtYzE5Ni00ZjlkLTk5ZjgtNjM3NWE4YzA3Nzk3XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_.jpg",
   },
   {
-    id: 9,
+    id: "9",
     title: "The Matrix",
     year: 1999,
     genre: ["Action", "Sci-Fi"],
@@ -125,7 +125,7 @@ export const movies = [
     imageURL: "https://www.whatisthematrix.com/assets/images/fullbanner.jpg",
   },
   {
-    id: 10,
+    id: "10",
     title: "Goodfellas",
     year: 1991,
     genre: ["Biography", "Crime", "Drama"],
@@ -139,7 +139,7 @@ export const movies = [
       "https://m.media-amazon.com/images/M/MV5BY2NkZjEzMDgtN2RjYy00YzM1LWI4ZmQtMjIwYjFjNmI3ZGEwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
   },
   {
-    id: 11,
+    id: "11",
     title: "Fellowship of the Ring",
     year: 2001,
     genre: ["Adventure", "Drama", "Fantasy"],

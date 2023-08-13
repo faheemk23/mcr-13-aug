@@ -13,7 +13,7 @@ export default function Watchlist() {
       <h1>Watch List</h1>
       <div className="movie-listing">
         {watchlist.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} inWatchlist />
+          <MovieCard key={movie.id} movie={movie} watchlistCard />
         ))}
       </div>
     </div>

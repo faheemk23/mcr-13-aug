@@ -1,9 +1,18 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { DataContext } from "../../contexts/DataContext";
+import {
+  addToStarred,
+  addToWatchlist,
+  inStarred,
+  inWatchList,
+  removeFromStarred,
+  removeFromWatchlist,
+} from "../../utilities";
 import "./MovieCard.css";
 
-export default function MovieCard({ movie }) {
+export default function MovieCard({ movie, starCard, watchlistCard }) {
   const { id, title, summary, imageURL } = movie;
 
   const {
@@ -11,63 +20,70 @@ export default function MovieCard({ movie }) {
     dataDispatch,
   } = useContext(DataContext);
 
-  const inWatchList = (movieId, watchlist) =>
-    watchlist.some(({ id }) => id === movieId);
+  const navigate = useNavigate();
 
-  const inStarred = (movieId, starred) =>
-    starred.some(({ id }) => id === movieId);
-
-  const addToStarred = (dataDispatch, movie) => {
-    dataDispatch({ type: "add-to-starred", payload: movie });
-  };
-
-  const removeFromStarred = (dataDispatch, movie) => {
-    dataDispatch({ type: "remove-from-starred", payload: movie });
-  };
-
-  const addToWatchlist = (dataDispatch, movie) => {
-    dataDispatch({ type: "add-to-watchlist", payload: movie });
-  };
-
-  const removeFromWatchlist = (dataDispatch, movie) => {
-    dataDispatch({ type: "remove-from-watchlist", payload: movie });
-  };
   return (
-    <article className="movie-card">
+    <article
+      className="movie-card pointer"
+      onClick={() => navigate(`/moviedetail/${id}`)}
+    >
       <img src={imageURL} alt="movie" />
       <div className="info">
         <h1>{title}</h1>
         <p>{summary}</p>
         <div className="btn-container">
-          {!inStarred(movie.id, starred) ? (
-            <button
-              className="btn"
-              onClick={() => addToStarred(dataDispatch, movie)}
-            >
-              Star
-            </button>
-          ) : (
-            <button
-              className="btn"
-              onClick={() => removeFromStarred(dataDispatch, movie)}
-            >
-              {true ? "Starred" : "Unstar"}
-            </button>
+          {!watchlistCard && (
+            <>
+              {" "}
+              {!inStarred(movie.id, starred) ? (
+                <button
+                  className="btn"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    addToStarred(dataDispatch, movie);
+                  }}
+                >
+                  Star
+                </button>
+              ) : (
+                <button
+                  className="btn"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    removeFromStarred(dataDispatch, movie);
+                  }}
+                >
+                  {!starCard ? "Starred" : "Unstar"}
+                </button>
+              )}
+            </>
           )}
-          {!inWatchList(movie.id, watchlist) ? (
-            <button
-              className="btn"
-              onClick={() => addToWatchlist(dataDispatch, movie)}
-            >
-              Add to WatchList
-            </button>
-          ) : (
-            <button
-              className="btn"
-              onClick={() => removeFromWatchlist(dataDispatch, movie)}
-            >
-              {true ? "Added to WatchList" : "Remove from watch list"}
-            </button>
+          {!starCard && (
+            <>
+              {!inWatchList(movie.id, watchlist) ? (
+                <button
+                  className="btn"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    addToWatchlist(dataDispatch, movie);
+                  }}
+                >
+                  Add to WatchList
+                </button>
+              ) : (
+                <button
+                  className="btn"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    removeFromWatchlist(dataDispatch, movie);
+                  }}
+                >
+                  {!watchlistCard
+                    ? "Added to WatchList"
+                    : "Remove from watch list"}
+                </button>
+              )}
+            </>
           )}
         </div>
       </div>

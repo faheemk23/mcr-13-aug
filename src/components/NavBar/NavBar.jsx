@@ -1,12 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import "./NavBar.css";
 
-export default function NavBar() {
+export default function NavBar({ setSearchInput }) {
+  const navigate = useNavigate();
+
   return (
     <nav className="nav-bar">
-      <h1>IMDB</h1>
-      <SearchBar />
+      <h1 className="pointer" onClick={() => navigate("/")}>
+        IMDB
+      </h1>
+      <SearchBar setSearchInput={setSearchInput} />
       <div className="links-container">
         <Link className="links" to="/">
           Movies

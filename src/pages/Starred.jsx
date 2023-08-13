@@ -13,7 +13,7 @@ export default function Starred() {
       <h1>Starred Movies</h1>
       <div className="movie-listing">
         {starred.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} inStarred />
+          <MovieCard key={movie.id} movie={movie} starCard />
         ))}
       </div>
     </div>
